@@ -6,7 +6,10 @@ require("dotenv/config");
 
 module.exports = {
   async login(req, res) {
-    const selectUser = await User.findOne({ where: { email: req.body.email } });
+    const selectUser = await User.findOne({
+      attributes: ["email", "password"],
+      where: { email: req.body.email },
+    });
 
     if (!selectUser) return res.status(400).json("Email ou senha incorretos");
 
@@ -27,7 +30,10 @@ module.exports = {
 
   async store(req, res) {
     const { name, email, admin, password } = req.body;
-    const selectedEmail = await User.findOne({ where: { email: email } });
+    const selectedEmail = await User.findOne({
+      attribute: ["email", "password"],
+      where: { email: email },
+    });
 
     if (selectedEmail) return res.json("Email já cadastrado");
 
