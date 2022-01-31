@@ -23,7 +23,7 @@ Para instalar o API Node, siga estas etapas:
 
 ### 1. clone este repositório em sua máquina;
 ```
-git clone 
+git clone https://github.com/cauegraciolip/node-api-jwt.git
 ```
 2. Instale as dependências;
 ```
