@@ -7,7 +7,10 @@ require("dotenv/config");
 module.exports = {
   async adminLogin(req, res) {
     const { email } = req.body;
-    const userFind = await User.findOne({ where: { email: email } });
+    const userFind = await User.findOne({
+      attribute: ["email", "password"],
+      where: { email: email },
+    });
 
     if (!userFind) return res.json("Usuário ou senha inválido");
 
